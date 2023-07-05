@@ -2,6 +2,8 @@ import { Contact } from 'components/Contact/Contact';
 import React from 'react';
 import { TitleH2, Ul } from './ContactList.styled';
 import { Filter } from 'components/Filter/Filter';
+import PropTypes from 'prop-types';
+
 
 export const ContactList = ({
   title,
@@ -9,7 +11,7 @@ export const ContactList = ({
   onRemoveContact,
   onChangeFilter,
   filteredContacts,
-  filter,
+  // filter,
 }) => {
   return (
     <>
@@ -23,10 +25,10 @@ export const ContactList = ({
       {contacts.length > 0 && (
         <Ul>
           <Contact
-            contacts={contacts}
+            // contacts={contacts}
             onRemoveContact={onRemoveContact}
             filteredContacts={filteredContacts}
-            filter={filter}
+            // filter={filter}
           />
         </Ul>
       )}
@@ -34,4 +36,22 @@ export const ContactList = ({
   );
 };
 
-ContactList.propTypes = {};
+ContactList.propTypes = {
+  title: PropTypes.string.isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  filteredContacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  onRemoveContact: PropTypes.func.isRequired,
+  onChangeFilter: PropTypes.func.isRequired,
+};

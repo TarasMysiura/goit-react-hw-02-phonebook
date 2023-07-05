@@ -7,6 +7,8 @@ import {
   Span,
   TitleH2,
 } from './PhonebookForm.styled';
+import PropTypes from 'prop-types';
+
 
 export class PhonebookForm extends Component {
   state = {
@@ -69,4 +71,6 @@ export class PhonebookForm extends Component {
   }
 }
 
-PhonebookForm.propTypes = {};
+PhonebookForm.propTypes = {
+  onAddContact: PropTypes.func.isRequired,
+};

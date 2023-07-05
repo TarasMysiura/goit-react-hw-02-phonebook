@@ -3,7 +3,6 @@ import { PhonebookForm } from './PhonebookForm/PhonebookForm';
 import { ContactList } from './ContactList/ContactList';
 import { nanoid } from 'nanoid';
 export class App extends Component {
-  // model.id = nanoid()
 
   state = {
     contacts: [
@@ -16,7 +15,6 @@ export class App extends Component {
   };
 
   onRemoveContact = contactId => {
-    // console.log(contactId);
 
     this.setState({
       contacts: this.state.contacts.filter(contact => contact.id !== contactId),
@@ -51,7 +49,6 @@ export class App extends Component {
 
   onChangeFilter = event => {
     this.setState({ filter: event.target.value });
-    console.log(this.state);
   };
 
   onFilteredContacts = () => {
@@ -68,7 +65,6 @@ export class App extends Component {
   render() {
     const filteredContacts = this.onFilteredContacts();
     const { filter } = this.state;
-    // console.log(filteredContacts);
     return (
       <div
         style={{

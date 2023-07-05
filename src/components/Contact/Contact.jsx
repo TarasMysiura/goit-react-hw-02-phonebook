@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Li, NumberSpan, Span } from './Contact.styled';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 export const Contact = ({ onRemoveContact, filteredContacts }) => {
   return filteredContacts.map(({ id, name, number }) => (
@@ -14,4 +14,12 @@ export const Contact = ({ onRemoveContact, filteredContacts }) => {
   ));
 };
 
-Contact.propTypes = {};
+Contact.propTypes = {
+  filteredContacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+};
