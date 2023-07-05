@@ -22,4 +22,5 @@ Contact.propTypes = {
       number: PropTypes.string.isRequired,
     })
   ),
+  onRemoveContact: PropTypes.func.isRequired,
 };

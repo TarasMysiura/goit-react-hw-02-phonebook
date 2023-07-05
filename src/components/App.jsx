@@ -2,8 +2,9 @@ import { Component } from 'react';
 import { PhonebookForm } from './PhonebookForm/PhonebookForm';
 import { ContactList } from './ContactList/ContactList';
 import { nanoid } from 'nanoid';
+import { TitleH2 } from './App.styled';
+import { Filter } from './Filter/Filter';
 export class App extends Component {
-
   state = {
     contacts: [
       { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -15,7 +16,6 @@ export class App extends Component {
   };
 
   onRemoveContact = contactId => {
-
     this.setState({
       contacts: this.state.contacts.filter(contact => contact.id !== contactId),
     });
@@ -38,12 +38,6 @@ export class App extends Component {
 
     this.setState({
       contacts: [...this.state.contacts, finalContact],
-    });
-  };
-
-  onFilterContactList = filterContact => {
-    this.setState({
-      contacts: [filterContact],
     });
   };
 
@@ -81,14 +75,21 @@ export class App extends Component {
           title="Phonebook"
           onAddContact={this.onAddContact}
         ></PhonebookForm>
-        <ContactList
-          title="Contacts"
-          contacts={this.state.contacts}
-          onRemoveContact={this.onRemoveContact}
-          onChangeFilter={this.onChangeFilter}
-          filteredContacts={filteredContacts}
-          filter={filter}
-        />
+        <TitleH2>Contacts</TitleH2>
+
+        {this.state.contacts.length > 0 ? (
+          <Filter onChangeFilter={this.onChangeFilter} />
+        ) : (
+          alert('Your phonebook is empty. Add first contact!')
+        )}
+        {this.state.contacts.length > 0 && (
+          <ContactList
+            title="Contacts"
+            onRemoveContact={this.onRemoveContact}
+            filteredContacts={filteredContacts}
+            filter={filter}
+          />
+        )}
       </div>
     );
   }
