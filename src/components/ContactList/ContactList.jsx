@@ -11,7 +11,6 @@ export const ContactList = ({
   onRemoveContact,
   onChangeFilter,
   filteredContacts,
-  // filter,
 }) => {
   return (
     <>
@@ -25,10 +24,8 @@ export const ContactList = ({
       {contacts.length > 0 && (
         <Ul>
           <Contact
-            // contacts={contacts}
             onRemoveContact={onRemoveContact}
             filteredContacts={filteredContacts}
-            // filter={filter}
           />
         </Ul>
       )}
