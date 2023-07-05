@@ -2,7 +2,6 @@ import { Component } from 'react';
 import { PhonebookForm } from './PhonebookForm/PhonebookForm';
 import { ContactList } from './ContactList/ContactList';
 import { nanoid } from 'nanoid';
-import { TitleH2 } from './PhonebookForm/PhonebookForm.styled';
 export class App extends Component {
   // model.id = nanoid()
 
