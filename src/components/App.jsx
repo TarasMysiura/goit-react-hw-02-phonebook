@@ -58,7 +58,6 @@ export class App extends Component {
 
   render() {
     const filteredContacts = this.onFilteredContacts();
-    const { filter } = this.state;
     return (
       <div
         style={{
@@ -84,10 +83,8 @@ export class App extends Component {
         )}
         {this.state.contacts.length > 0 && (
           <ContactList
-            title="Contacts"
             onRemoveContact={this.onRemoveContact}
             filteredContacts={filteredContacts}
-            filter={filter}
           />
         )}
       </div>
